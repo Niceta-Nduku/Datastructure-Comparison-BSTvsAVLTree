@@ -96,7 +96,7 @@ public class BinarySearchTree{
 		}
 	}
 
-	
+
 	public void getOpcount(){
 		/**
 		@return int operation count

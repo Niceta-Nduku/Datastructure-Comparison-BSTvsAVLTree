@@ -107,14 +107,13 @@ public class PowerAVLApp {
 
         // read from the CVS file 
         BufferedReader bRead = new BufferedReader(new FileReader(args[0]));
-
-        String ignoreline = bRead.readLine();//read the first line in the csv file and do nothing with it
+        
         String line = bRead.readLine();
 
         while (line!=null){
 
           powerAVL.find(line);
-          System.out.print(powerAVL.getFindOpcount()+"\t");
+          System.out.print(powerAVL.getFindOpcount()+ "\t");
           line = bRead.readLine();
 
         }

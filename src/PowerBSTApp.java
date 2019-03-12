@@ -105,20 +105,16 @@ public class PowerBSTApp{
 
         // read from the CVS file 
         BufferedReader bRead = new BufferedReader(new FileReader(args[0]));
-
-        List<Integer> opArray = new ArrayList<>();  
         
-        String ignoreline = bRead.readLine();//read the first line in the csv file and do nothing with it
         String line = bRead.readLine();
 
         while (line!=null){
 
           powerBST.find(line);
-          opArray.add(powerBST.getFindOpcount());
+          System.out.print(powerBST.getFindOpcount()+ "\t");
           line = bRead.readLine();
 
         }
-        System.out.println(opArray);
       }
 
     	else { // if the user inputs a string
