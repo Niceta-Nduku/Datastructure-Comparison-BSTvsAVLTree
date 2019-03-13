@@ -112,7 +112,7 @@ public class BinarySearchTree{
 
 	public int getFindOpcount(){
 		/**
-		@return int operation count
+		@return int Find operation counts
 		@author Niceta Nduku
 		*/
 		
@@ -124,7 +124,7 @@ public class BinarySearchTree{
 
 	public int getInsertOpcount(){
 		/**
-		@return int operation count
+		@return int Insert operation counts
 		@author Niceta Nduku
 		*/ 
 		
@@ -133,7 +133,7 @@ public class BinarySearchTree{
 
 	private class BinaryTreeNode {
 		/**
-		Node object
+		Node object class
 		@aurthor Patrick modified by Niceta Nduku
 		*/
 		PowerData data;

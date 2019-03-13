@@ -1,8 +1,7 @@
 /**
   PowerArrayApp is an application that reads data values from a Binary Search tree.
   It reads a CSV file and adds the data to a Binary Search Tree and 
-  prints out the data in the array either by specifying the date
-  or printing all dates.
+  prints out the data.
   @author Niceta Nduku NDKNIC001
 */
 import java.io.*;
@@ -17,7 +16,7 @@ public class PowerBSTApp{
 	private static void getData() throws IOException, FileNotFoundException {
 		/**
          This is the method that reads from the CVS file and captures all the required data into a binary search tree.
-         @return a Binary Search tree with PowerData items
+         It updates the variable powerBST with data from the csv file. 
          @exception IOException
          @exception FileNotFoundException
          @see IOException
@@ -59,7 +58,6 @@ public class PowerBSTApp{
          searches through the data to find a matching date/time 
          and prints out the data 
          @param string dateTime
-         @return nothing
          @exception IOException
          @see IOException
      	 */

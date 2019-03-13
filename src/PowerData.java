@@ -16,8 +16,7 @@ public class PowerData {
 
 	public String getDateTime() {
 		/**
-		@param none
-		@returns dateTime
+			@return dateTime
 		*/
 		return dateTime;
 	}

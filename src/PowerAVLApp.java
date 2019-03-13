@@ -1,8 +1,7 @@
 /**
   PowerAVLApp is an application that reads data values from a AVL tree.
   It reads a CSV file and adds the data to an AVL Tree and 
-  prints out the data in the array either by specifying the date
-  or printing all dates.
+  prints out the data in the tree.
   @author Niceta Nduku NDKNIC001
 */
 import java.io.*;
@@ -12,16 +11,16 @@ import java.util.*;
 
 public class PowerAVLApp { 
 
-  private static AVLTree powerAVL;
+  private static AVLTree powerAVL;// AVL tree to be used in class
 
 	private static void getData() throws IOException, FileNotFoundException {
 		/**
          This is the method that reads from the CVS file and captures all the required data into an AVL tree.
-         @return an AVL tree with PowerData items
+         It updates the power AVL tree with data from the CSV file.
          @exception IOException
          @exception FileNotFoundException
          @see IOException
-         @see FileNotFoundExceptio
+         @see FileNotFoundException
       	*/
       
 		powerAVL = new AVLTree();
@@ -56,7 +55,7 @@ public class PowerAVLApp {
   public static void printDateTime(String dateTime) throws IOException{
   	/**
        This method takes in the date/time from the user,
-       searches through the data to find a matching date/time 
+       searches through the data in the AVL treee to find a matching date/time 
        and prints out the data 
        @param dateTime 
        @exception IOException
@@ -77,8 +76,6 @@ public class PowerAVLApp {
  	public static void printAllDateTimes() throws IOException{
 	/**
        This method prints out all the data in the AVL Tree
-       @param none
-       @return nothing
        @exception IOException
        @see IOException
     	*/
@@ -96,7 +93,7 @@ public class PowerAVLApp {
     if (args.length==0){ //if the input is null, print all the powerData items in the array
 
       printAllDateTimes();
-      powerAVL.getOpcount();
+      powerAVL.getOpcount();// print insert and find operations
     }
 
     else{
@@ -105,15 +102,14 @@ public class PowerAVLApp {
 
       if(file.exists()){
 
-        // read from the CVS file 
-        BufferedReader bRead = new BufferedReader(new FileReader(args[0]));
+        BufferedReader bRead = new BufferedReader(new FileReader(args[0]));// read from the txt file 
         
         String line = bRead.readLine();
 
         while (line!=null){
 
           powerAVL.find(line);
-          System.out.print(powerAVL.getFindOpcount()+ "\t");
+          System.out.print(powerAVL.getFindOpcount()+ "\t");// tabbing here is to be used when inserting into an xlsx file 
           line = bRead.readLine();
 
         }
