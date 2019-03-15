@@ -1,7 +1,7 @@
 /**
-	PowerData is an object class.
-	The PowerData Object has a Date/Time, power and voltage
-	@author Niceta Nduku 
+*	PowerData is an object class.
+*	The PowerData Object has a Date/Time, power and voltage
+*	@author Niceta Nduku 
 */
 public class PowerData {
 	public String dateTime;
@@ -16,14 +16,14 @@ public class PowerData {
 
 	public String getDateTime() {
 		/**
-			@return dateTime
+		*	@return dateTime
 		*/
 		return dateTime;
 	}
 
 	public String toString() {
 		/**
-			@Override
+		*	@Override
 		*/
 		return dateTime+ " " +power+ " " +voltage;
 	}
