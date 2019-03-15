@@ -1,28 +1,30 @@
+
+import java.io.*;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.*; 
+import java.util.*;
+
 /**
 *  PowerAVLApp is an application that reads data values from a AVL tree.
 *  It reads a CSV file and adds the data to an AVL Tree and 
 *  prints out the data in the tree.
 *  @author Niceta Nduku NDKNIC001
 */
-import java.io.*;
-import java.nio.charset.StandardCharsets;
-import java.nio.file.*; 
-import java.util.*;
-
 public class PowerAVLApp { 
 
   private static AVLTree powerAVL;// AVL tree to be used in class
 
+
+  /**
+  *    This is the method that reads from the CVS file and captures all the required data into an AVL tree.
+  *    It updates the variable powerAVL tree with data from the CSV file.
+  *    @exception IOException
+  *    @exception FileNotFoundException
+  *    @see IOException
+  *    @see FileNotFoundException
+  */    
 	private static void getData() throws IOException, FileNotFoundException {
-		/**
-    *    This is the method that reads from the CVS file and captures all the required data into an AVL tree.
-    *    It updates the variable powerAVL tree with data from the CSV file.
-    *    @exception IOException
-    *    @exception FileNotFoundException
-    *    @see IOException
-    *    @see FileNotFoundException
-      	*/
-      
+
 		powerAVL = new AVLTree();
 
 		// read from the CVS file 
@@ -52,15 +54,16 @@ public class PowerAVLApp {
 		}
   }
 
+  /**
+  *  This method takes in the date/time from the user,
+  *  searches through the data in the AVL treee to find a matching date/time 
+  *  and prints out the data 
+  *  @param dateTime 
+  *  @exception IOException
+  *  @see IOException
+  */
   public static void printDateTime(String dateTime) throws IOException{
-  	/**
-    *  This method takes in the date/time from the user,
-    *  searches through the data in the AVL treee to find a matching date/time 
-    *  and prints out the data 
-    *  @param dateTime 
-    *  @exception IOException
-    *  @see IOException
-   	 */
+
 
 		if(powerAVL.find(dateTime) == null){
 			System.out.println("Date/Time not found");
@@ -73,22 +76,23 @@ public class PowerAVLApp {
 		}
 	}
    
+  /**
+  *  This method prints out all the data in the AVL Tree
+  *  @exception IOException
+  *  @see IOException
+  */
  	public static void printAllDateTimes() throws IOException{
-    /**
-    *  This method prints out all the data in the AVL Tree
-    *  @exception IOException
-    *  @see IOException
-    */
 
  		powerAVL.display();
 
  	}
 
+  /**
+  * This is the main method that runs the application 
+  * based on the user input.         
+  */
  	public static void main(String [] args) throws IOException {
-    /**
-    * This is the main method that runs the application 
-    * based on the user input.         
-    */
+
     getData();
     if (args.length==0){ //if the input is null, print all the powerData items in the array
 

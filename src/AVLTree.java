@@ -8,49 +8,52 @@ public class AVLTree{
 	private static int insertOpCount=0;
 	private static int findOpCount=0;
 
+	/**
+	* Costructor creates an new avl with root node equal to null
+	*/
 	public AVLTree () {
 		this.root = null;
 	}
 
+	/**
+	*	Gives the height of the binary tree
+	*	@param node BinaryTreeNode
+	*	@return int the height of the tree
+	*/
 	public int height ( BinaryTreeNode node ) {
-		/**
-		*	Gives the height of the binary tree
-		*	@param node BinaryTreeNode
-		*	@return int the height of the tree
-		*/
 
 		if (node != null)
 			return node.height;
 		return -1;
 	}
 
+	/**
+	*	calculates the difference between the right sub-tree
+	*	and the left sub tree
+	*	@param node BinaryTreeNode
+	*	@return int height difference
+	*/
 	public int balanceFactor ( BinaryTreeNode node ) {
-		/**
-		*	calculates the difference between the right sub-tree
-		*	and the left sub tree
-		*	@param node BinaryTreeNode
-		*	@return int height difference
-		*/
-
+		
 		return height (node.right) - height (node.left);
 	}
 
+	/**
+	*	calculates the height of the tree. 
+	*	@param node BinaryTreeNode
+	*/
 	public void fixHeight ( BinaryTreeNode node ) {
-		/**
-		*	calculates the height of the tree. 
-		*	@param node BinaryTreeNode
-		*/
 
 		node.height = Math.max (height (node.left),	height (node.right)) + 1;
 	}
 
+	/**
+	*	Rotate with left child
+	*	@param p BinaryTreeNode
+	*	@return BinaryTreeNode 
+	*/
 	public BinaryTreeNode rotateRight ( BinaryTreeNode p ) {
-		/**
-		*	Rotate with left child
-		*	@param p BinaryTreeNode
-		*	@return BinaryTreeNode 
-		*/
-
+		
 		BinaryTreeNode q = p.left;
 		p.left = q.right;
 		q.right = p;
@@ -59,12 +62,12 @@ public class AVLTree{
 		return q;
 	}
 
+	/**
+	*	Rotate with right child
+	*	@param q BinaryTreeNode
+	*	@return BinaryTreeNode 
+	*/
 	public BinaryTreeNode rotateLeft ( BinaryTreeNode q ) {
-		/**
-		*	Rotate with right child
-		*	@param q BinaryTreeNode
-		*	@return BinaryTreeNode 
-		*/
 
 		BinaryTreeNode p = q.right;
 		q.right = p.left;
@@ -74,12 +77,12 @@ public class AVLTree{
 		return p;
 	}
 
+	/**
+	*	This method balances the tree.
+	*	@param p BinaryTreeNode
+	*	@return BinaryTreeNode
+	*/
 	public BinaryTreeNode balance ( BinaryTreeNode p ) {
-		/**
-		*	This method balances the tree.
-		*	@param p BinaryTreeNode
-		*	@return BinaryTreeNode
-		*/
 
 		fixHeight (p);
 		if (balanceFactor (p) == 2) {
@@ -96,26 +99,27 @@ public class AVLTree{
 		return p;
 	}
 
+	/**
+	*	This method adds data to a AVL tree. 
+	*	If the root is null it will make the data the root and 
+	*	add its children. 
+	*	@param d This is the data of type PowerData 
+	*/
 	public void insert ( PowerData d ) {
-		/**
-		*	This method adds data to a AVL tree. 
-		*	If the root is null it will make the data the root and 
-		*	add its children. 
-		*	@param d This is the data of type PowerData 
-		*/
 
 		root = insert (d, root);
 	}
 	
+	/**
+	*	Adds a new node to the current node by comparing its dateTime Value
+	*	If the dateTime of d is smaller that the node's data datetime, node containing d will be added to the left of node. 
+	*	If the dateTime of d is greater that the node's data datetime, node containing d will be added to the right of node. 
+	*	add its children. 
+	*	@param d This is the data of type PowerData 
+	*	@param node This is the node which the next data will be linked to.
+	*/
+
 	public BinaryTreeNode insert ( PowerData d, BinaryTreeNode node ) {
-		/**
-		*	Adds a new node to the current node by comparing its dateTime Value
-		*	If the dateTime of d is smaller that the node's data datetime, node containing d will be added to the left of node. 
-		*	If the dateTime of d is greater that the node's data datetime, node containing d will be added to the right of node. 
-		*	add its children. 
-		*	@param d This is the data of type PowerData 
-		*	@param node This is the node which the next data will be linked to.
-		*/
 
 		if (node == null)
 			return new BinaryTreeNode (d, null, null);
@@ -129,12 +133,12 @@ public class AVLTree{
 		return balance (node);
 	}
 
+	/**
+	*	This method looks for a string data in the AVL Tree 
+	*	@param s String data
+	*	@return PowerData item
+	*/
 	public PowerData find ( String s) {
-		/**
-		*	This method looks for a string data in the AVL Tree 
-		*	@param s String data
-		*	@return PowerData item
-		*/
 
 		if (root == null)
 			return null;
@@ -142,15 +146,16 @@ public class AVLTree{
 			return find (s, root);
 	}
 
+	/**
+	*	This method looks for a string data in the AVL Tree. 
+	*	It compares each node's data in the left and right sub trees 
+	*	until it finds a match. 
+	*	@param s String data
+	*	@param node Binary tree node
+	*	@return PowerData item
+	*/
 	public PowerData find ( String s, BinaryTreeNode node) {
-		/**
-		*	This method looks for a string data in the AVL Tree. 
-		*	It compares each node's data in the left and right sub trees 
-		*	until it finds a match. 
-		*	@param s String data
-		*	@param node Binary tree node
-		*	@return PowerData item
-		*/
+
 
 		findOpCount++;// comparison incriment for first comparison operator
 		
@@ -162,20 +167,20 @@ public class AVLTree{
 			return (node.right == null) ? null : find (s, node.right);
 	}
 
+	/**
+	*	This method calls the display function that takes in the root as a parameter 
+	*	@author Niceta Nduku
+	*/
 	public void display () {
-		/**
-		*	This method calls the display function that takes in the root as a parameter 
-		*	@author Niceta Nduku
-		*/
 
 		display(root);
 	}
 
+	/**
+	*	Prints out all the data in the tree
+	*	@author SJ modified by Niceta Nduku
+	*/
 	public void display (BinaryTreeNode root) {
-		/**
-		*	Prints out all the data in the tree
-		*	@author SJ modified by Niceta Nduku
-		*/
 
 		if(root!=null){
 			display(root.left);
@@ -184,12 +189,12 @@ public class AVLTree{
 		}
 	}
 
+	/**
+	*	@return int operation count
+	*	@author Niceta Nduku
+	*/
 	public void getOpcount(){
-		/**
-		*	@return int operation count
-		*	@author Niceta Nduku
-		*/
-		
+
 		int findCount=findOpCount;// create a copy of the operation count
 		findOpCount=0;// sets operations to zero in order to reset 
 		
@@ -197,43 +202,44 @@ public class AVLTree{
 		System.out.println("Insert Operations: "+insertOpCount+"\n"+"Find Operations: "+findCount);
 	}
 
+	/**
+	*	@return int find operation counts
+	*	@author Niceta Nduku
+	*/		
 	public int getFindOpcount(){
-		/**
-		*	@return int find operation counts
-		*	@author Niceta Nduku
-		*/
-		
+
 		int findCount=findOpCount;// create a copy of the operation count
 		findOpCount=0;// sets operations to zero in order to reset 
 		
 		return findCount;
 	}
 
+	/**
+	*	@return int insert operation counts
+	*	@author Niceta Nduku
+	*/ 
 	public int getInsertOpcount(){
-		/**
-		*	@return int insert operation counts
-		*	@author Niceta Nduku
-		*/ 
 		
 		return insertOpCount;
 	}
 
+	/**
+	*	Node object class
+	*/
 	private class BinaryTreeNode {
-		/**
-		*	Node object class
-		*/
+
 		PowerData data;
 		BinaryTreeNode left;
 		BinaryTreeNode right;
 		int height;
 
+		/**
+		*	New node object. 
+		*	@param d PowerData item
+		*	@param l left node
+		*	@param r right node
+		*/
 		public BinaryTreeNode ( PowerData d, BinaryTreeNode l, BinaryTreeNode r ) {
-			/**
-			*	New node object. 
-			*	@param d PowerData item
-			*	@param l left node
-			*	@param r right node
-			*/
 
 			data = d;
 			left = l;

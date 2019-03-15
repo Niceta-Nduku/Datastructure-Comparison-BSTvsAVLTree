@@ -1,28 +1,28 @@
-/**
-*  PowerArrayApp is an application that reads data values from a Binary Search tree.
-*  It reads a CSV file and adds the data to a Binary Search Tree and 
-*  prints out the data in the tree.
-*  modified PowerBSTApp for part 6
-*  @author Niceta Nduku NDKNIC001
-*/
 import java.io.*;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.*; 
 import java.util.*;
 
+/**
+*  PowerArrayAppP6 is a version of PowerBSTApp that takes in a sorted CSV file.
+*  It reads a CSV file and adds the data to a Binary Search Tree and 
+*  prints out the data in the tree.
+*  modified PowerBSTApp for part 6
+*  @author Niceta Nduku NDKNIC001
+*/
 public class PowerBSTAppP6{ 
 
   private static BinarySearchTree powerBST;
 
+  /**
+  * This is the method that reads from the CVS file and captures all the required data into a binary search tree.
+  * It updates the variable powerBST with data from the csv file. 
+  * @exception IOException
+  * @exception FileNotFoundException
+  * @see IOException
+  * @see FileNotFoundExceptio
+  */
   private static void getData() throws IOException, FileNotFoundException {
-    /**
-    * This is the method that reads from the CVS file and captures all the required data into a binary search tree.
-    * It updates the variable powerBST with data from the csv file. 
-    * @exception IOException
-    * @exception FileNotFoundException
-    * @see IOException
-    * @see FileNotFoundExceptio
-    */
       
     powerBST = new BinarySearchTree();
 
@@ -53,15 +53,15 @@ public class PowerBSTAppP6{
     }
   }
 
+    /**
+    *  This method takes in the date/time from the user,
+    *  searches through the data to find a matching date/time 
+    *  and prints out the data 
+    *  @param string dateTime
+    *  @exception IOException
+    *  @see IOException
+    */
     public static void printDateTime(String dateTime) throws IOException{
-      /**
-      *  This method takes in the date/time from the user,
-      *  searches through the data to find a matching date/time 
-      *  and prints out the data 
-      *  @param string dateTime
-      *  @exception IOException
-      *  @see IOException
-       */
 
     if(powerBST.find(dateTime) == null){
       System.out.println("Date/Time not found");
@@ -73,22 +73,24 @@ public class PowerBSTAppP6{
 
     }
   }
-   
+  
+  /**
+  *    This method prints out all the data in the Binary Search Tree
+  *    @exception IOException
+  *    @see IOException
+  */ 
   public static void printAllDateTimes() throws IOException{
-    /**
-    *    This method prints out all the data in the Binary Search Tree
-    *    @exception IOException
-    *    @see IOException
-    */
+
     powerBST.display();
 
   }
-
+  
+  /**
+  *    This is the main method that runs the application 
+  *    based on the user input.         
+  */
   public static void main(String [] args) throws IOException {
-    /**
-    *    This is the main method that runs the application 
-    *    based on the user input.         
-    */
+
     getData();
     if (args.length==0){ //if the input is null, print all the powerData items in the array
 

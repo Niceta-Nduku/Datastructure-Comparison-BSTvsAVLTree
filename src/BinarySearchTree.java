@@ -9,32 +9,38 @@ public class BinarySearchTree{
 	private static int insertOpCount=0;
 	private static int findOpCount=0;
 
+	/**
+	* Costructor creates an new avl with root node equal to null
+	*/
 	public BinarySearchTree(){
 		this.root = null;
 	}
 
+	/**
+	*	This method adds data to a binary search tree. 
+	*	If the root is null it will make the data the root and 
+	*	add its children. 
+	*	@param d This is the data of type PowerData 
+	*/
 	public void insert ( PowerData d ) {
-		/**
-		*	This method adds data to a binary search tree. 
-		*	If the root is null it will make the data the root and 
-		*	add its children. 
-		*	@param d This is the data of type PowerData 
-		*/
+
 		if (root == null)
 			root = new BinaryTreeNode (d, null, null);
 		else
 		 	insert (d, root);
 	}
 
+	/**
+	*	Adds a new node to the current node by comparing its dateTime Value
+	*	If the dateTime of d is smaller that the node's data datetime, node containing d will be added to the left of node. 
+	*	If the dateTime of d is greater that the node's data datetime, node containing d will be added to the right of node. 
+	*	add its children. 
+	*	@param d This is the data of type PowerData 
+	*	@param node This is the node which the next data will be linked to.
+	*/
+
 	public void insert ( PowerData d, BinaryTreeNode node ) {
-		/**
-		*	Adds a new node to the current node by comparing its dateTime Value
-		*	If the dateTime of d is smaller that the node's data datetime, node containing d will be added to the left of node. 
-		*	If the dateTime of d is greater that the node's data datetime, node containing d will be added to the right of node. 
-		*	add its children. 
-		*	@param d This is the data of type PowerData 
-		*	@param node This is the node which the next data will be linked to.
-		*/
+		
 
 		// comparison incriment for comparison operator below
 		insertOpCount++;
@@ -54,27 +60,29 @@ public class BinarySearchTree{
 	 	}
 	}
 
+	/**
+	*	This method looks for a string data in the AVL Tree 
+	*	@param s String data
+	*	@return PowerData item
+	*/
 	public PowerData find ( String s) {
-		/**
-		*	This method looks for a string data in the AVL Tree 
-		*	@param s String data
-		*	@return PowerData item
-		*/
+		
 		if (root == null)
 			return null;
 		else
 			return find (s, root);
 	}
 
+	/**
+	*	This method looks for a string data in the AVL Tree. 
+	*	It compares each node's data in the left and right sub trees 
+	*	until it finds a match. 
+	*	@param s String data
+	*	@param node Binary tree node
+	*	@return PowerData item
+	*/
 	public PowerData find ( String s, BinaryTreeNode node) {
-		/**
-		*	This method looks for a string data in the AVL Tree. 
-		*	It compares each node's data in the left and right sub trees 
-		*	until it finds a match. 
-		*	@param s String data
-		*	@param node Binary tree node
-		*	@return PowerData item
-		*/
+
 	
 		findOpCount++;// comparison incriment for first comparison operator
 		
@@ -86,19 +94,21 @@ public class BinarySearchTree{
 			return (node.right == null) ? null : find (s, node.right);
 	}
 
+	/**
+	*	This method calls the display function that takes in the root as a parameter 
+	*	@author Niceta Nduku
+	*/
 	public void display () {
-		/**
-		*	This method calls the display function that takes in the root as a parameter 
-		*	@author Niceta Nduku
-		*/
+
 		display(root);
 	}
 
+	/**
+	*	Prints out all the data in the tree
+	*	@author SJ modified by Niceta Nduku
+	*/
 	public void display (BinaryTreeNode root) {
-		/**
-		*	Prints out all the data in the tree
-		*	@author SJ modified by Niceta Nduku
-		*/
+
 		if(root!=null){
 			display(root.left);
 			System.out.println(root.data);
@@ -106,12 +116,11 @@ public class BinarySearchTree{
 		}
 	}
 
-
+	/**
+	*	@return int operation count
+	*	@author Niceta Nduku
+	*/
 	public void getOpcount(){
-		/**
-		*	@return int operation count
-		*	@author Niceta Nduku
-		*/
 		
 		int findCount=findOpCount;// create a copy of the operation count
 		findOpCount=0;// sets operations to zero in order to reset 
@@ -120,11 +129,11 @@ public class BinarySearchTree{
 		System.out.println("Insert Operations: "+insertOpCount+"\n"+"Find Operations: "+findCount);
 	}
 
+	/**
+	*	@return int find operation counts
+	*	@author Niceta Nduku
+	*/
 	public int getFindOpcount(){
-		/**
-		*	@return int find operation counts
-		*	@author Niceta Nduku
-		*/
 		
 		int findCount=findOpCount;// create a copy of the operation count
 		findOpCount=0;// sets operations to zero in order to reset 
@@ -132,19 +141,19 @@ public class BinarySearchTree{
 		return findCount;
 	}
 
-	public int getInsertOpcount(){
-		/**
-		*	@return int insert operation counts
-		*	@author Niceta Nduku
-		*/ 
+	/**
+	*	@return int insert operation counts
+	*	@author Niceta Nduku
+	*/
+	public int getInsertOpcount(){ 
 		
 		return insertOpCount;
 	}
 
+	/**
+	*	Node object class
+	*/
 	private class BinaryTreeNode {
-		/**
-		*	Node object class
-		*/
 		PowerData data;
 		BinaryTreeNode left;
 		BinaryTreeNode right;
