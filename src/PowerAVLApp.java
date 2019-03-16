@@ -93,7 +93,7 @@ public class PowerAVLApp {
   */
  	public static void main(String [] args) throws IOException {
 
-    getData();
+    getData();// tree is intially created
     if (args.length==0){ //if the input is null, print all the powerData items in the array
 
       printAllDateTimes();
@@ -114,7 +114,7 @@ public class PowerAVLApp {
         while (line!=null){
 
           powerAVL.find(line);
-          System.out.print(powerAVL.getFindOpcount()+ "\t");// tabbing here is to be used when inserting into an xlsx file 
+          System.out.print(powerAVL.getFindOpcount()+ " " + powerAVL.getInsertOpcount()+" ");// tabbing here is to be used when inserting into an xlsx file 
           line = bRead.readLine();
 
         }

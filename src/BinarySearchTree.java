@@ -121,12 +121,8 @@ public class BinarySearchTree{
 	*	@author Niceta Nduku
 	*/
 	public void getOpcount(){
-		
-		int findCount=findOpCount;// create a copy of the operation count
-		findOpCount=0;// sets operations to zero in order to reset 
-		
 
-		System.out.println("Insert Operations: "+insertOpCount+"\n"+"Find Operations: "+findCount);
+		System.out.println("Insert Operations: "+insertOpCount+"\n"+"Find Operations: "+findOpCount);
 	}
 
 	/**

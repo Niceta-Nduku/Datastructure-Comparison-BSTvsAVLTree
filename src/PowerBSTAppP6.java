@@ -112,7 +112,7 @@ public class PowerBSTAppP6{
         while (line!=null){
 
           powerBST.find(line);
-          System.out.print(powerBST.getFindOpcount()+ "\t");
+          System.out.print(powerBST.getFindOpcount()+ " " + powerBST.getInsertOpcount()+ " ");
           line = bRead.readLine();
 
         }

@@ -111,7 +111,7 @@ public class PowerAVLAppP6 {
         while (line!=null){
 
           powerAVL.find(line);
-          System.out.print(powerAVL.getFindOpcount()+ "\t");// tabbing here is to be used when inserting into an xlsx file 
+          System.out.print(powerAVL.getFindOpcount()+ " " + powerAVL.getInsertOpcount()+" ");// tabbing here is to be used when inserting into an xlsx file 
           line = bRead.readLine();
 
         }
