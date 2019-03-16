@@ -67,10 +67,10 @@ public class PowerBSTApp{
 
 		if(powerBST.find(dateTime) == null){
       System.out.println("Date/Time not found");
-
     }
 
     else{
+      powerBST.getFindOpcount();// to rest the operation count if not cound
       System.out.println("Date/Time: "+powerBST.find(dateTime));
 
     }

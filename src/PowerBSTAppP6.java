@@ -29,8 +29,6 @@ public class PowerBSTAppP6{
     // read from the CVS file 
     BufferedReader bRead = new BufferedReader(new FileReader("../Tests/SortedData.csv"));
 
-        
-    String ignoreline = bRead.readLine();//read the first line in the csv file and do nothing with it
     String line = bRead.readLine(); // the first line that contains the required data
 
     // initialise the values to be stored in the powerData object
@@ -69,6 +67,7 @@ public class PowerBSTAppP6{
     }
 
     else{
+      powerBST.getFindOpcount();// to rest the operation count if not cound
       System.out.println("Date/Time: "+powerBST.find(dateTime));
 
     }

@@ -121,7 +121,7 @@ public class BinarySearchTree{
 	*	@author Niceta Nduku
 	*/
 	public void getOpcount(){
-
+	
 		System.out.println("Insert Operations: "+insertOpCount+"\n"+"Find Operations: "+findOpCount);
 	}
 

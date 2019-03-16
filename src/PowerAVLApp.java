@@ -71,6 +71,7 @@ public class PowerAVLApp {
 		}
 
 		else{
+      powerAVL.getFindOpcount();// to rest the operation count if not cound
 			System.out.println("Date/Time: "+powerAVL.find(dateTime));
   
 		}
