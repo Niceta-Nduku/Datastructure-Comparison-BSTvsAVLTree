@@ -1,4 +1,4 @@
-#Data Structure Comparison: Binary Search Tree vs AVL Tree
+# Data Structure Comparison: Binary Search Tree vs AVL Tree
 
 In the terminal, open the practical directory and run the make file
 
