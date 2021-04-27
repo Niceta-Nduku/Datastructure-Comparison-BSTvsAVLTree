@@ -1,3 +1,5 @@
+#Data Structure Comparison: Binary Search Tree vs AVL Tree
+
 In the terminal, open the practical directory and run the make file
 
 To run either PowerAVLApp or PowerBSTApp open the bin directory run either app. e.g.
